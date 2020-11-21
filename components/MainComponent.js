@@ -50,7 +50,7 @@ const AboutNavigator = createStackNavigator(
         About: { screen: About }
     },
     {
-        navigationOptions: {
+        defaultNavigationOptions: {
             headerStyle: {
                 backgroundColor: '#5637DD'
             },
@@ -67,7 +67,7 @@ const ContactNavigator = createStackNavigator(
         Contact: { screen: Contact }
     },
     {
-        navigationOptions: {
+        defaultNavigationOptions: {
             headerStyle: {
                 backgroundColor: '#5637DD'
             },
