@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { ScrollView, Text, FlatList } from 'react-native';
 import { Card, ListItem } from 'react-native-elements';
+import Loading from './LoadingComponent';
 import { connect } from 'react-redux';
 import { baseUrl } from '../shared/baseUrl';
 
@@ -39,6 +40,26 @@ class About extends Component {
             );
         };
 
+        if(this.props.partners.isLoading) {
+            return (
+                <ScrollView>
+                    <Mission/>
+                    <Card title='Community Partners'wrapperStyle={{margin: 10}}>
+                        <Loading />
+                    </Card>
+                </ScrollView>
+            );
+        }
+        if (this.props.partners.errMess) {
+            return (
+                <ScrollView>
+                    <Mission/>
+                    <Card title='Community Partners'wrapperStyle={{margin: 10}}>
+                        <Text>{this.props.partners.errMess}</Text>
+                    </Card>
+                </ScrollView>
+            );
+        }
         return (
             <ScrollView>
                 <Mission/>
